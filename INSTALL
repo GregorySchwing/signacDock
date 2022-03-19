@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+#Requires conda
+#install conda
+#wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+#DOWNDLOAD AND INSTALL ADFRsuite_Linux-x86_64_1.0_install
+#bash ./Anaconda3-2020.02-Linux-x86_64.sh
+#conda init bash
+#Vina doesnt support 3.10 as of 3/15/21
+conda create -n vina python=3.9 -y
+# This line may change depending on location of conda installation
+#TODO command line or autodetect
+source ~/anaconda3/etc/profile.d/conda.sh
+conda activate vina
+conda config --env --add channels conda-forge
+conda install signac signac-flow -y
+conda install numpy mdanalysis -y
+pip install vina
+# Not sure if I need this
+#conda install -c mcs07 pubchempy -y
+#pip install chembl_webresource_client
+# For simple sorting of namd dcd files
+pip install natsort
+pip install pdb-tools
+conda install ProDy -y
+conda install -c conda-forge openbabel -y
+pip install -U meeko
+conda install -c rdkit rdkit -y
+conda install pmda -y
